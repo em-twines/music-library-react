@@ -67,19 +67,17 @@ html{
 
 .featured-container{
   display: grid;
-  grid-template-areas: 'featured featured table'
-  'featured featured table';
-  grid-template-rows: auto;
+  grid-template-areas: 'table featured add';
+  grid-auto-columns: 1fr; 
   justify-content: center;
   justify-items: center;
-  align-content: space-evenly;
+  align-content: center;
   align-items: center;
-  gap: 4rem; 
+  gap: 1rem;
 }
 
 .featured{
   grid-area: featured;
-  display: flex; 
   margin-top: 5vh;
   margin-bottom:8vh; 
   margin-left: auto;
@@ -88,13 +86,16 @@ html{
 
 .table{
   grid-area: table;
-  margin-top: 5vh;
-  margin-bottom:8vh; 
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto; 
+  justify-content: right;
 
 }
 
+.add{
+  grid-area: add;
+  margin: auto; 
+  justify-content: left;
+}
 
 .playlist{
   width: 85%; 
@@ -121,4 +122,7 @@ html{
   font-size: 4rem; 
   left: 6rem; 
   margin-top: 1.5rem;
+}
+.name{
+  font-size: medium;
 }

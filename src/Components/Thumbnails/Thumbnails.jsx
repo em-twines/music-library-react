@@ -1,6 +1,16 @@
 import React from 'react'
 
 
+    // useEffect(()=>{
+
+
+    //     let tempSong = props.songs.map(el=>{
+    //         return[el.title, el.artist, el.album, el.releaseDate, el.genre, el.likes, el.link, el.img]
+           
+    //     });
+    //     setSong(tempSong);
+    // })
+
 
 
 export default function Thumbnails(props) {
