@@ -1,6 +1,11 @@
 import React, { useState} from 'react';
 
 import axios  from 'axios';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+
+
+
 
 
 
@@ -38,7 +43,6 @@ export default function Add(props) {
             img: img,
         }
         console.log (newSong);
-        debugger; 
         addNewSong(newSong);
 
     }
@@ -46,37 +50,61 @@ export default function Add(props) {
     
 
 
-    return (  
+    return (
+        <Modal
+          {...props}
+          size="lg"
+          aria-labelledby="contained-modal-title-vcenter"
+          centered
+        >
+          <Modal.Header closeButton>
+            <Modal.Title id="contained-modal-title-vcenter">
+            <h4>Add a New Song</h4>
 
- 
-        <form onSubmit ={handleSubmit} className = 'table'>
-            <h2>Add New Song</h2>
-            <label className = 'name'>Song Title</label>
-            <input className ='form-control' type = 'text'  value={title} onChange={(event) => setTitle(event.target.value)} required></input>
-    
-            <label className = 'name'>Artist</label>
-            <input className ='form-control' type = 'text'  value={artist} onChange={(event) => setArtist(event.target.value)} required></input>
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <p>
+             
+                <form onSubmit ={handleSubmit} className = 'table'>
+                    {/* <h2>Add New Song</h2> */}
+                    <label className = 'name'>Song Title</label>
+                    <input className ='form-control' type = 'text'  value={title} onChange={(event) => setTitle(event.target.value)} required></input>
+            
+                    <label className = 'name'>Artist</label>
+                    <input className ='form-control' type = 'text'  value={artist} onChange={(event) => setArtist(event.target.value)} required></input>
 
 
-            <label className = 'name'>Album Title</label>
-            <input className ='form-control' type = 'text'  value={album} onChange={(event) => setAlbum(event.target.value)}required></input>
+                    <label className = 'name'>Album Title</label>
+                    <input className ='form-control' type = 'text'  value={album} onChange={(event) => setAlbum(event.target.value)}required></input>
 
 
-            <label className = 'name'>Release Date</label>
-            <input className ='form-control' type = 'date'  value={release_date} onChange={(event) => setReleaseDate(event.target.value)}required></input>
+                    <label className = 'name'>Release Date</label>
+                    <input className ='form-control' type = 'date'  value={release_date} onChange={(event) => setReleaseDate(event.target.value)}required></input>
 
-            <label className = 'name'>Genre</label>
-            <input className ='form-control' type = 'text'  value={genre} onChange={(event) => setGenre(event.target.value)}required></input>
+                    <label className = 'name'>Genre</label>
+                    <input className ='form-control' type = 'text'  value={genre} onChange={(event) => setGenre(event.target.value)}required></input>
 
-        
-            <label className = 'name'>Video Link</label>
-            <input className ='form-control' type = 'text'  value={link} onChange={(event) => setLink(event.target.value)}required></input>
+                
+                    <label className = 'name'>Video Link</label>
+                    <input className ='form-control' type = 'text'  value={link} onChange={(event) => setLink(event.target.value)}required></input>
 
-            <label className = 'name'>Thumbnail Image Link</label>
-            <input className ='form-control' type = 'text'  value={img} onChange={(event) => setImg(event.target.value)}required></input>
+                    <label className = 'name'>Thumbnail Image Link</label>
+                    <input className ='form-control' type = 'text'  value={img} onChange={(event) => setImg(event.target.value)}required></input>
 
-            <button className = 'badge badge-pill btn btn-primary ' type = 'submit'>Submit</button>
-        </form>
-    );
-}
+                    <button className = 'badge badge-pill btn btn-primary ' type = 'submit'>Submit</button>
+                </form>
+            </p>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button onClick={props.onHide}>Close</Button>
+          </Modal.Footer>
+        </Modal>
+      );
+    }
+
+
+
+
+
  
