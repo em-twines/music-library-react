@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 
+import axios  from 'axios';
 
 
 
@@ -16,6 +17,14 @@ export default function Add(props) {
     const[link, setLink] = useState(''); 
     const[img, setImg] = useState(''); 
 
+    async function addNewSong(song){
+        let res = await axios.post(('http://127.0.0.1:8000/api/music/'), song);
+        if(res.status === 201){
+          console.log(res); 
+          props.displayAllSongs(false);
+        }
+    }
+
     function handleSubmit(event){
         event.preventDefault();
        let newSong = {
@@ -28,12 +37,14 @@ export default function Add(props) {
             link: link,
             img: img,
         }
-        props.addNewSong(newSong);
+        console.log (newSong);
+        debugger; 
+        addNewSong(newSong);
 
     }
 
-
     
+
 
     return (  
 
