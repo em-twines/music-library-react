@@ -64,7 +64,7 @@ function App() {
   return (
     <div className="App">
       <div className="top-buffer"></div>
-      <NavBar songs = {songs} removeFeatured = {removeFeatured} handleClick = {handleClick}setSongs = {setSongs} />
+      <NavBar songs = {songs} removeFeatured = {removeFeatured} handleClick = {handleClick}setSongs = {setSongs} displayAllSongs = {displayAllSongs}/>
       
       <div className="featured-container">
         <div>

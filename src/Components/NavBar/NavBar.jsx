@@ -5,7 +5,7 @@ export default function NavBar(props) {
 
 
 
-  const[results, setResults] = useState('');
+  // const[results, setResults] = useState('');
   const[criteria, setCriteria] = useState('');
 
   function handleSubmit(event){
@@ -35,16 +35,21 @@ export default function NavBar(props) {
 
 
   function search(input){
-    let outcomes = props.songs.filter((el)=> {
+    if (input.length > 0){
+      input = input.toLowerCase();
+      let outcomes = props.songs.filter((el)=> {
 
-      if (el.title.includes(input))
-      {
-        return true;
+        if (el.title.toLowerCase().includes(input) || el.artist.toLowerCase().includes(input) || el.album.toLowerCase().includes(input) || el.release_date.includes(input) || el.genre.toLowerCase().includes(input))
+        {
+          return true;
+        }
+      })
+      props.setSongs(outcomes)
+      props.handleClick(outcomes[0]);
       }
-    })
-    // props.removeFeatured(); 
-    props.setSongs(outcomes)
-    props.handleClick(outcomes[0]);
+      else {
+        props.displayAllSongs(true); 
+      }
     }
 
 
