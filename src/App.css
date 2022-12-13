@@ -75,9 +75,8 @@ h3{
   display: grid;
   grid-template-areas: 'table-grid featured info'
   'table-grid featured like'
-  'table-grid featured add-song'
-  'table-grid featured update'
-  'table-grid featured delete';
+  'table-grid update-delete add-song';
+
 
   grid-auto-columns: 1fr; 
   justify-content: center;
@@ -94,11 +93,11 @@ h3{
 
 .table{
   grid-area: table-grid;
-  margin: auto;
   justify-content: right;
   max-height: max-content;
   overflow : scroll; 
-
+  /* border-width: 2px;
+  border:rgb(0, 0, 0) */
 }
 
 .add{
@@ -117,17 +116,21 @@ h3{
   grid-area: like;
 }
 
-.update{
-  grid-area: update;
+.update-delete{
+  grid-area: update-delete;
+  display: flex; 
   margin: auto;
-  justify-content: center;
+  justify-content: space-around;
+}
+
+/* .update{
+  
 }
 
 .delete{
   grid-area: delete;
-  margin: auto;
-  justify-content: center;
-}
+
+} */
 
 .playlist{
   width: 85%; 
@@ -176,4 +179,13 @@ h3{
 
 .icon-size{
   font-size: 2rem; 
+}
+
+.nav-container{
+  display: flex;
+  justify-content: stretch;
+  align-content: stretch 
+}
+.search{
+  max-height: fit-content;  
 }

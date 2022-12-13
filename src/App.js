@@ -8,6 +8,7 @@ import Add from "./Components/Add/Add.jsx";
 import axios from "axios";
 import Button from 'react-bootstrap/Button';
 import PatchLikes from "./Components/PatchLikes/PatchLikes";
+import Delete from "./Components/Delete/Delete.jsx"
 
 //figure out put method
 //search bar
@@ -63,7 +64,7 @@ function App() {
   return (
     <div className="App">
       <div className="top-buffer"></div>
-      <NavBar />
+      <NavBar songs = {songs} removeFeatured = {removeFeatured} handleClick = {handleClick} />
       
       
       <div className="featured-container">
@@ -93,15 +94,16 @@ function App() {
         <div className = 'like'><PatchLikes featuredSong = {featuredSong}/></div>
 
         <div className = 'add'>
-        <Button variant="primary" onClick={() => setModalShow(true)}>Add song</Button>
-        <Add show={modalShow} onHide={() => setModalShow(false)} displayAllSongs={displayAllSongs} />
+          <Button variant="primary" onClick={() => setModalShow(true)}>Add New song</Button>
+          <Add show={modalShow} onHide={() => setModalShow(false)} displayAllSongs={displayAllSongs} />
         </div>
+        <Delete featuredSong = {featuredSong}/>
       </div>
 
 
       <h2 className="playlist">Your Playlist</h2>
       <div className="line"></div>
-      <Thumbnails songs={songs} handleClick = {handleClick} removeFeatured = {removeFeatured}/>
+        <Thumbnails songs={songs} handleClick = {handleClick} removeFeatured = {removeFeatured}/>
     </div>
   );
 }
