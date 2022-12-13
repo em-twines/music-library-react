@@ -40,8 +40,7 @@ function App() {
     if (fetchFeatured && toChoose){
       displayRandomSong(response.data)
     }
-    
-
+  
   }
 
   function removeFeatured(){
@@ -91,8 +90,7 @@ function App() {
           <h4>Release Date: {featuredSong.release_date}</h4>
           <h4>Genre: {featuredSong.genre}</h4>
         </div>
-
-        {/* <div className = 'likes-container'><PatchLikes featuredSong = {featuredSong}/></div> */}
+        <div className = 'like'><PatchLikes featuredSong = {featuredSong}/></div>
 
         <div className = 'add'>
         <Button variant="primary" onClick={() => setModalShow(true)}>Add song</Button>
