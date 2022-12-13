@@ -36,24 +36,29 @@ export default function NavBar(props) {
 
   function search(input){
     let outcomes = props.songs.filter((el)=> {
-      return el.includes(input);
+
+      if (el.title.includes(input))
+      {
+        return true;
+      }
     })
-    props.removeFeatured(); 
-    props.handleClick(setResults(outcomes));
+    // props.removeFeatured(); 
+    props.setSongs(outcomes)
+    props.handleClick(outcomes[0]);
     }
 
 
   return (
     <div className = 'nav-container'>
       <div className = 'navbar'>
-          <div >Sound<small className = 'text-muted'>Stream</small></div>    
+          <div>Sound<small className = 'text-muted'>Stream</small></div>    
       </div>
+
       <form onSubmit ={handleSubmit} className = 'search'>
-            <label ></label>
             <input type = 'text' onChange={(event) => setCriteria(event.target.value)} value = {criteria}></input>
             <button className = 'badge badge-pill btn btn-primary create ' type = 'submit'>Go</button>
       </form>
-
-    </div>
+  </div>
+  
   )
 }

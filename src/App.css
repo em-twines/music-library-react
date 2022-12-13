@@ -74,12 +74,11 @@ h3{
 .featured-container{
   display: grid;
   grid-template-areas: 'table-grid featured info'
-  'table-grid featured like'
   'table-grid update-delete add-song';
 
 
   grid-auto-columns: 1fr; 
-  justify-content: center;
+  justify-content: space-between;
   justify-items: center;
   align-content: center;
   align-items: center;
@@ -101,9 +100,7 @@ h3{
 }
 
 .add{
-  grid-area: add-song;
-  margin: auto; 
-  justify-content: center;
+  font-size: large;
 }
 
 .info{
@@ -113,24 +110,22 @@ h3{
 }
 
 .like{
-  grid-area: like;
+  font-size: large;
 }
 
 .update-delete{
   grid-area: update-delete;
-  display: flex; 
+  display: flex;
   margin: auto;
-  justify-content: space-around;
-}
+  justify-items: space-between;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
 
-/* .update{
-  
 }
-
 .delete{
-  grid-area: delete;
-
-} */
+  font-size: large;
+} 
 
 .playlist{
   width: 85%; 
@@ -152,12 +147,7 @@ h3{
   width: 100%;
   background-color: rgb(117, 117, 117);
 }
-.navbar{
-  display: flex; 
-  font-size: 4rem; 
-  left: 6rem; 
-  margin-top: 1.5rem;
-}
+
 .name{
   font-size: medium;
 }
@@ -183,9 +173,20 @@ h3{
 
 .nav-container{
   display: flex;
-  justify-content: stretch;
-  align-content: stretch 
+  justify-content: space-between;
+  align-items: center;
 }
+
+.navbar{
+  display: flex;
+  font-size: 4rem; 
+  left: 6rem; 
+  margin-top: 1.5rem;
+}
+
 .search{
+  display: flex;
   max-height: fit-content;  
-}
+  justify-content: right;
+  padding-right: 10rem; 
+} 

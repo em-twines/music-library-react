@@ -14,7 +14,7 @@ export default function Delete(props) {
 
     return (
 
-    <button type = 'button' className = "update-delete btn btn-primary" onClick = {deleteSong}>Delete Song</button>  
+    <button type = 'button' className = "update-delete btn btn-danger" onClick = {deleteSong}>Delete Song</button>  
 
     )
 

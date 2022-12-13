@@ -64,8 +64,7 @@ function App() {
   return (
     <div className="App">
       <div className="top-buffer"></div>
-      <NavBar songs = {songs} removeFeatured = {removeFeatured} handleClick = {handleClick} />
-      
+      <NavBar songs = {songs} removeFeatured = {removeFeatured} handleClick = {handleClick}setSongs = {setSongs} />
       
       <div className="featured-container">
         <div>
@@ -85,19 +84,23 @@ function App() {
         
         <div className = 'trackInfo'>
           <h3>Track Information</h3>
-          <h4>Title: {featuredSong.title}</h4>
-          <h4>Artist: {featuredSong.artist}</h4>
-          <h4>Album: {featuredSong.album}</h4>
-          <h4>Release Date: {featuredSong.release_date}</h4>
-          <h4>Genre: {featuredSong.genre}</h4>
+          <h4>Title: {featuredSong?.title}</h4>
+          <h4>Artist: {featuredSong?.artist}</h4>
+          <h4>Album: {featuredSong?.album}</h4>
+          <h4>Release Date: {featuredSong?.release_date}</h4>
+          <h4>Genre: {featuredSong?.genre}</h4>
         </div>
-        <div className = 'like'><PatchLikes featuredSong = {featuredSong}/></div>
+        <div className = 'update-delete'>
+          <div className = 'like'><PatchLikes featuredSong = {featuredSong}/></div>
 
-        <div className = 'add'>
-          <Button variant="primary" onClick={() => setModalShow(true)}>Add New song</Button>
-          <Add show={modalShow} onHide={() => setModalShow(false)} displayAllSongs={displayAllSongs} />
+          <div className = 'add'>
+            <Button variant="primary" onClick={() => setModalShow(true)}>Add New song</Button>
+            <Add show={modalShow} onHide={() => setModalShow(false)} displayAllSongs={displayAllSongs} />
+          </div>
+          <div>
+            <Delete className = 'delete' featuredSong = {featuredSong}/>
+          </div>
         </div>
-        <Delete featuredSong = {featuredSong}/>
       </div>
 
 
