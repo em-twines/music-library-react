@@ -5,7 +5,7 @@ import axios from "axios";
 
 
 export default function PatchLikes(props) {
-    const [active, setActive] = useState(true);
+    const [active, setActive] = useState();
     const [likes, setLikes] = useState();
 
     const handleClickLike = () => {
@@ -21,7 +21,14 @@ export default function PatchLikes(props) {
     }
 
     useEffect(() => {
-        setLikes(props.featuredSong.likes)
+        if (props.featuredSong.likes > 0) {
+            setLikes(props.featuredSong.likes);
+            setActive(false);
+        }
+        else{
+            setActive(true);
+        }
+        
     },[props.featuredSong.likes])
 
  
